@@ -15,17 +15,18 @@
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
+            android:layout_marginTop="32dp"
             android:src="@drawable/hornets"/>
 
         <TextView
             android:id="@+id/tv_team_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16sp"
-            android:layout_marginTop="16sp"
+            android:layout_marginBottom="32sp"
+            android:layout_marginTop="32sp"
             android:gravity="center"
             android:text="隊名"
-            android:textSize="24sp" />
+            android:textSize="@dimen/font_size" />
 
         <TextView
             android:id="@+id/tv_team_score"
@@ -41,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
+            android:textSize="@dimen/font_size"
             android:text="+3 分球"
             android:textColor="@android:color/white" />
 
@@ -49,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
-            android:onClick="addTwoPoints"
+            android:textSize="@dimen/font_size"
             android:text="+2 分球"
             android:textColor="@android:color/white" />
 
@@ -58,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
-            android:onClick="freeThrow"
+            android:textSize="@dimen/font_size"
             android:text="罰球"
             android:textColor="@android:color/white" />
 

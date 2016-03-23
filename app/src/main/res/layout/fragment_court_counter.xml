@@ -42,7 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
-            android:onClick="addTwoPoints"
             android:text="+2 分球"
             android:textColor="@android:color/white" />
 
@@ -51,7 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16sp"
-            android:onClick="freeThrow"
             android:text="罰球"
             android:textColor="@android:color/white" />
 

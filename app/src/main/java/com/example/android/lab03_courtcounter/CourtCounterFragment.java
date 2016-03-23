@@ -50,19 +50,24 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
         m_btn_free_throw.setOnClickListener(this);
     }
 
-    public void threeScoreView(View view) {
-        int three_score = Integer.parseInt(m_tv_team_score.getText().toString());
-        m_tv_team_score.setText(String.valueOf(three_score + 3));
-    }
+//    public void threeScoreView(View view) {
+//        int three_score = Integer.parseInt(m_tv_team_score.getText().toString());
+//        m_tv_team_score.setText(String.valueOf(three_score + 3));
+//    }
+//
+//    public void twoScoreView(View view) {
+//        int two_score = Integer.parseInt(m_tv_team_score.getText().toString());
+//        m_tv_team_score.setText(String.valueOf(two_score + 2));
+//    }
+//
+//    public void freeThrowView(View view) {
+//        int free_throw = Integer.parseInt(m_tv_team_score.getText().toString());
+//        m_tv_team_score.setText(String.valueOf(free_throw + 1));
+//    }
 
-    public void twoScoreView(View view) {
-        int two_score = Integer.parseInt(m_tv_team_score.getText().toString());
-        m_tv_team_score.setText(String.valueOf(two_score + 2));
-    }
-
-    public void freeThrowView(View view) {
-        int free_throw = Integer.parseInt(m_tv_team_score.getText().toString());
-        m_tv_team_score.setText(String.valueOf(free_throw + 1));
+    public void addTeamScore(int score) {
+        int teamscore = Integer.parseInt(m_tv_team_score.getText().toString());
+        m_tv_team_score.setText(String.valueOf(teamscore + score));
     }
 
     @Override
@@ -71,17 +76,20 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
             case R.id.btn_three_points:
 //                int three_score = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(three_score + 3));
-                threeScoreView(v);
+//                threeScoreView(v);
+                addTeamScore(3);
                 break;
             case R.id.btn_two_points:
 //                int two_score = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(two_score + 2));
-                twoScoreView(v);
+//                twoScoreView(v);
+                addTeamScore(2);
                 break;
             case R.id.btn_free_throw:
 //                int free_throw = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(free_throw + 1));
-                freeThrowView(v);
+//                freeThrowView(v);
+                addTeamScore(1);
                 break;
         }
     }
