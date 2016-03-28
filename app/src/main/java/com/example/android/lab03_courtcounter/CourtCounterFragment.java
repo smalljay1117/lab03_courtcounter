@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -15,11 +16,14 @@ import android.widget.TextView;
  */
 public class CourtCounterFragment extends Fragment implements View.OnClickListener {
 
+    private ImageView m_img_team_logo;
     private TextView m_tv_team_name;
     private TextView m_tv_team_score;
     private Button m_btn_three_points;
     private Button m_btn_two_points;
     private Button m_btn_free_throw;
+
+    private int score;
 
     public CourtCounterFragment() {
         // Required empty public constructor
@@ -37,16 +41,17 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
     public void onStart() {
         super.onStart();
 
-        m_tv_team_name = (TextView)getView().findViewById(R.id.tv_team_name);
-        m_tv_team_score = (TextView)getView().findViewById(R.id.tv_team_score);
+        m_img_team_logo = (ImageView) getView().findViewById(R.id.img_team_logo);
+        m_tv_team_name = (TextView) getView().findViewById(R.id.tv_team_name);
+        m_tv_team_score = (TextView) getView().findViewById(R.id.tv_team_score);
 
-        m_btn_three_points = (Button)getView().findViewById(R.id.btn_three_points);
+        m_btn_three_points = (Button) getView().findViewById(R.id.btn_three_points);
         m_btn_three_points.setOnClickListener(this);
 
-        m_btn_two_points = (Button)getView().findViewById(R.id.btn_two_points);
+        m_btn_two_points = (Button) getView().findViewById(R.id.btn_two_points);
         m_btn_two_points.setOnClickListener(this);
 
-        m_btn_free_throw = (Button)getView().findViewById(R.id.btn_free_throw);
+        m_btn_free_throw = (Button) getView().findViewById(R.id.btn_free_throw);
         m_btn_free_throw.setOnClickListener(this);
     }
 
@@ -65,10 +70,10 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
 //        m_tv_team_score.setText(String.valueOf(free_throw + 1));
 //    }
 
-    public void addTeamScore(int score) {
-        int teamscore = Integer.parseInt(m_tv_team_score.getText().toString());
-        m_tv_team_score.setText(String.valueOf(teamscore + score));
-    }
+//    public void addTeamScore(int score) {
+//        int teamscore = Integer.parseInt(m_tv_team_score.getText().toString());
+//        m_tv_team_score.setText(String.valueOf(teamscore + score));
+//    }
 
     @Override
     public void onClick(View v) {
@@ -77,21 +82,25 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
 //                int three_score = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(three_score + 3));
 //                threeScoreView(v);
-                addTeamScore(3);
+//                addTeamScore(3);
+                score += 3;
                 break;
             case R.id.btn_two_points:
 //                int two_score = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(two_score + 2));
 //                twoScoreView(v);
-                addTeamScore(2);
+//                addTeamScore(2);
+                score += 2;
                 break;
             case R.id.btn_free_throw:
 //                int free_throw = Integer.parseInt(m_tv_team_score.getText().toString());
 //                m_tv_team_score.setText(String.valueOf(free_throw + 1));
 //                freeThrowView(v);
-                addTeamScore(1);
+//                addTeamScore(1);
+                score += 1;
                 break;
         }
+        m_tv_team_score.setText(String.valueOf(score));
     }
 
     public void resetscore() {
@@ -100,5 +109,11 @@ public class CourtCounterFragment extends Fragment implements View.OnClickListen
 
     public void setTeamName(CharSequence teamname) {
         m_tv_team_name.setText(teamname);
+    }
+
+    public void setTeamLogo(int res_id) {
+        if (m_img_team_logo != null) {
+            m_img_team_logo.setImageResource(res_id);
+        }
     }
 }
